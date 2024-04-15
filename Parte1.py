@@ -1,14 +1,15 @@
 import csv
 d = [{'Nombre':'', 'Apellido':'', 'Practica01':'', 'Practica02':'', 'Practica03':'', 'Examen':'', 'Recuperacion':'', 'Actitud':''}]
 
-def process_class():
+def process_class(ruta):
    '''Función que crea un diciionario por cada uno de los alumnos de la lista y los guarda
         PARAMETROS:
-            abrir el archivo en modo lectura: se abre el archivo csv en modo lectura
+           Como parámetro de entrada a la función tendremos un str con la ruta del fichero (.csv) a abrir
             
         SALIDA:
-             como salida tenemos cada dato con su diccionario correspondiente'''
-   f = open('class.csv', 'r') 
+            como salida tenemos cada dato con su diccionario correspondiente'''
+             
+   f = open(ruta, 'r') 
    texto = f.read()
    lineas = texto.split('\n')
    
@@ -24,6 +25,6 @@ def process_class():
         d[0]['Examen'] = linea[8], linea[9]
         d[0]['Recuperacion'] = linea[10], linea[11]
         d[0]['Actitud'] = linea[12], linea[13]
-        return
+        return()
         
-process_class()
+process_class('class.csv')
